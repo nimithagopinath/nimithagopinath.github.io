@@ -983,17 +983,53 @@ body {
   flex-shrink: 0;
 }
 
-.project-card .card-body > p:not(.date) {
+.project-card .card-body > p:not(.date),
+.project-card .card-description-wrap > p {
   color: var(--text-muted);
   font-size: 0.9rem;
   line-height: 1.5;
-  margin: 0 0 1rem;
+  margin: 0 0 0.25rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   flex: 1;
   min-height: 0;
+}
+
+.project-card.is-expanded .card-description-wrap > p {
+  -webkit-line-clamp: unset;
+  display: block;
+  overflow: visible;
+}
+
+.project-card .card-description-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card .card-show-more {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.project-card .card-show-more:hover {
+  text-decoration: underline;
+}
+
+.project-card .card-show-more.hidden {
+  display: none;
 }
 
 .project-card .card-link {

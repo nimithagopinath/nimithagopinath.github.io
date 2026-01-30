@@ -300,7 +300,7 @@
 					<div class="card-cover" role="presentation" style="background-image: url('images/service desk technician.jpg');"></div>
 					<div class="exp-content">
 						<header class="exp-header">
-							<h3>Service Desk Technician</h3>
+							<h3>Service Desk Analyst</h3>
 							<span class="exp-org">Simon Fraser University</span>
 							<div class="exp-meta">Sep 2023 – Aug 2025 · Burnaby, BC</div>
 						</header>
@@ -912,6 +912,39 @@
 				tab.addEventListener('keydown', function(e) {
 					if (e.key === 'ArrowLeft' && i > 0) { tabs[i - 1].focus(); tabs[i - 1].click(); e.preventDefault(); }
 					if (e.key === 'ArrowRight' && i < tabs.length - 1) { tabs[i + 1].focus(); tabs[i + 1].click(); e.preventDefault(); }
+				});
+			});
+		});
+	})();
+
+	(function projectCardShowMore() {
+		document.addEventListener('DOMContentLoaded', function() {
+			document.querySelectorAll('.project-card .card-body').forEach(function(body) {
+				var descP = body.querySelector(':scope > p:not(.date)');
+				if (!descP || descP.closest('.card-description-wrap')) return;
+				var wrap = document.createElement('div');
+				wrap.className = 'card-description-wrap';
+				descP.parentNode.insertBefore(wrap, descP);
+				wrap.appendChild(descP);
+				var btn = document.createElement('button');
+				btn.type = 'button';
+				btn.className = 'card-show-more';
+				btn.setAttribute('aria-expanded', 'false');
+				btn.textContent = 'Show more';
+				wrap.appendChild(btn);
+				function checkOverflow() {
+					var card = body.closest('.project-card');
+					if (card.classList.contains('is-expanded')) return;
+					if (descP.scrollHeight <= descP.clientHeight + 2) btn.classList.add('hidden');
+					else btn.classList.remove('hidden');
+				}
+				setTimeout(checkOverflow, 0);
+				window.addEventListener('resize', checkOverflow);
+				btn.addEventListener('click', function() {
+					var card = body.closest('.project-card');
+					var expanded = card.classList.toggle('is-expanded');
+					btn.setAttribute('aria-expanded', expanded);
+					btn.textContent = expanded ? 'Show less' : 'Show more';
 				});
 			});
 		});

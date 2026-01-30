@@ -116,18 +116,10 @@ input, select, textarea {
 /* Type */
 
 	html {
-		font-size: 16pt;
+		font-size: 12pt;
 	}
 
 		@media screen and (max-width: 1680px) {
-
-			html {
-				font-size: 12pt;
-			}
-
-		}
-
-		@media screen and (max-width: 1280px) {
 
 			html {
 				font-size: 11pt;
@@ -135,10 +127,18 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 360px) {
+		@media screen and (max-width: 1280px) {
 
 			html {
 				font-size: 10pt;
+			}
+
+		}
+
+		@media screen and (max-width: 360px) {
+
+			html {
+				font-size: 9pt;
 			}
 
 		}
@@ -151,7 +151,7 @@ input, select, textarea {
 		font-family: "Merriweather", Georgia, serif;
 		font-weight: 300;
 		font-size: 1rem;
-		line-height: 2.375;
+		line-height: 1.75;
 	}
 
 	a {
@@ -196,7 +196,7 @@ input, select, textarea {
 		}
 
 	h1 {
-		font-size: 4rem;
+		font-size: 2.5rem;
 		line-height: 1.1;
 		margin: 0 0 2rem 0;
 	}
@@ -3386,12 +3386,12 @@ input, select, textarea {
 				}
 
 		#intro h1 {
-			font-size: 5rem;
+			font-size: 2.75rem;
 			line-height: 1;
 		}
 
 		#intro p {
-			font-size: 1.25rem;
+			font-size: 1rem;
 			font-style: italic;
 			margin-top: -0.25rem;
 			text-align: center;
@@ -3474,13 +3474,13 @@ input, select, textarea {
 			}
 
 				#intro h1 {
-					font-size: 3.25rem;
+					font-size: 2rem;
 					line-height: 1.1;
 					margin-bottom: 1rem;
 				}
 
 				#intro p {
-					font-size: 1rem;
+					font-size: 0.95rem;
 					margin-top: 0rem;
 				}
 
